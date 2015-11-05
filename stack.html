@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <style>
+        .x-axis path, .x-axis line {
+            fill: none;
+            stroke: grey;
+        }
+        .x-axis text{
+            font-size: 11px;
+            font-family: sans-serif;
+        }
+        div {
+            margin-top: 10px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <h2>Gender Distribution By Engineering Major</h2>
+    <button id="sortFemale" onclick="sortFemale()">Sort # Female</button>
+    <button id="sortMale" onclick="sortMale()">Sort # Male</button>
+    <button id="sortFemalePercent" onclick="sortFemalePercent()">Sort % Female</button>
+    <button id="sortMalePercent" onclick="sortMalePercent()">Sort % Male</button>
+    <div></div>
+    <script src="stack.js"></script>
+</body>
+
+</html>
