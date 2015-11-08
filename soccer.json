@@ -1,0 +1,47 @@
+{"date":"13-Jul", "location":"RioDeJanero", "team1":"Germany","t1Score":"1", "t1Result":"win", 
+ "team2":"Argentina","t2Score":"0","t2Result":"lose", "round":"final",
+ "children":[
+    {"date":"9-Jul", "location":"SaoPaulo", "team1":"Netherlands", "t1Score":"2", "t1Result":"lose", 
+     "team2":"Argentina", "t2Score":"4", "t2Result":"win", "round":"semi-final",
+     "children":[
+        {"date":"5-Jul", "location":"Salvador", "team1":"Netherlands","t1Score":"4", "t1Result":"win", 
+         "team2":"CostaRica","t2Score":"3", "t2Result":"lose", "round":"quarter-final",
+        "children":[
+            {"date":"29-Jun", "location":"Fortaleza", "team1":"Netherlands","t1Score":"2", "t1Result":"win", 
+             "team2":"Mexico","t2Score":"1", "t2Result":"lose", "round":"roundOf18"},
+            {"date":"29-Jun", "location":"Recife", "team1":"CostaRica","t1Score":"6", "t1Result":"win", 
+             "team2":"Greece","t2Score":"4", "t2Result":"lose", "round":"roundOf16"}
+        ]},
+    
+        {"date":"5-Jul", "location":"Brasilia", "team1":"Argentina","t1Score":"1", "t1Result":"win", 
+         "team2":"Belgium","t2Score":"0", "t2Result":"lose", "round":"quarter-final",
+         "children":[
+            {"date":"1-Jul", "location":"SaoPaulo", "team1":"Argentina","t1Score":"1", "t1Result":"win", 
+             "team2":"Switzerland","t2Score":"0", "t2Result":"lose", "round":"roundOf18"},
+            {"date":"1-Jul", "location":"Salvador", "team1":"Belgium","t1Score":"2", "t1Result":"win", 
+             "team2":"UnitedStates","t2Score":"1", "t2Result":"lose", "round":"roundOf16"}
+        ]}
+    ]},
+ 
+    {"date":"8-Jul", "location":"BeloHorizonte", "team1":"Brazil","t1Score":"1", "t1Result":"lose", 
+     "team2":"Germany","t2Score":"7", "t2Result":"win", "round":"semi-final",
+     "children":[
+        {"date":"4-Jul", "location":"Fortaleza", "team1":"Brazil","t1Score":"2", "t1Result":"win", 
+         "team2":"Columbia","t2Score":"1", "t2Result":"lose", "round":"quarter-final",
+         "children":[
+            {"date":"28-Jun", "location":"BeloHorizonte", "team1":"Brazil","t1Score":"4", "t1Result":"win", 
+             "team2":"Chile","t2Score":"3", "t2Result":"lose", "round":"roundOf16"},
+            {"date":"28-Jun", "location":"RioDeJanero", "team1":"Columbia","t1Score":"2", "t1Result":"win", 
+             "team2":"Uruguay","t2Score":"0", "t2Result":"lose", "round":"roundOf16"}
+        ]},
+    
+        {"date":"4-Jul", "location":"RioDeJanero", "team1":"France","t1Score":"0", "t1Result":"lose", 
+         "team2":"Germany","t2Score":"1", "t2Result":"win", "round":"quarter-final",
+         "children":[
+            {"date":"30-Jun", "location":"Brasilia", "team1":"France","t1Score":"2", "t1Result":"win", 
+             "team2":"Nigeria","t2Score":"0", "t2Result":"lose", "round":"roundOf16"},
+            {"date":"30-Jun", "location":"PortoAlegre", "team1":"Germany","t1Score":"2", "t1Result":"win", 
+             "team2":"Algeria","t2Score":"1", "t2Result":"lose", "round":"roundOf16"}
+        ]}
+    ]}
+ ]}

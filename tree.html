@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <style>
+        
+        h3{
+            position: absolute;
+            top: 700px;
+        }
+        
+        h2{
+            position: absolute;
+            width: 200px;
+            right: 200px;
+            top: 50px;
+        }
+    
+        div{
+            position: absolute;
+            width: 150px;
+            right: 250px;
+            top: 100px;
+            border-style: solid;
+            
+        }
+    
+        p{
+            position: absolute;
+            top: 730px;
+        }
+        
+        .node circle {
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+        
+        .node {
+            font: 11px sans-serif;
+        }
+        
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 1.5px;
+        }
+        
+    </style>
+</head>    
+
+<body>  
+    
+    <h1>2014 World Cup Soccer - Final 16</h1>  
+    <h2>Match Results</h2>
+    
+    <div id="node">   
+        home:<br>
+       
+        away:<br>
+     
+        awayScore:<br>
+        
+        homeResult:<br>
+
+        awayResult:<br>
+
+        location:<br>
+
+        date:<br>
+
+        round:<br>
+    </div>
+     
+    <h3>Intro</h3> 
+    <p>
+        The ‘Tree layout’ is not only a distinct type of diagram. It also representates one of D3’s hierarchical layouts. It’s designed to produce a ‘node-link’ diagram that lays out the connection between nodes in a method that displays the relationship of one node to another in a parent-child fashion.  The data required to produce this type of layout needs to describe the relationship. d3.layout.tree() is the starting point for tree layouts in D3. The call to this function returns an object that contains a bunch of methods to configure the layout and also provides methods to compute the layout.  The tree layout produces tidy node-link diagrams of trees using the Reingold–Tilford “tidy” algorithm. With tree layout you can visualize the data in a node-relation like stucture.
+    </p>
+    
+    <script src="bracket.js"></script>   
+</body>
+
