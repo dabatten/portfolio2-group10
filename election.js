@@ -1,6 +1,7 @@
-var width = 960;
+var width = 1000;
 var height = 500;
 
+//define a projection for the map
 var projection = d3.geo.albersUsa()
     .translate([width / 2, height / 2])
     .scale([1000]);
@@ -8,17 +9,18 @@ var projection = d3.geo.albersUsa()
 var path = d3.geo.path()
     .projection(projection);
 
+//make svg canvas
 var svg = d3.select("#map1").append("svg")
     .attr("width", width)
     .attr("height", height);
 
 var g = svg.append("g")
-    //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
     .append("g")
     .attr("id", "states");
 
 var data = {};
 
+//import CSV data then generate map
 d3.csv("2012pres.csv", function (csv_data) {
     console.log(data);
     data = csv_data;
@@ -27,6 +29,8 @@ d3.csv("2012pres.csv", function (csv_data) {
 
 
 function generateMap() {
+    
+    //import json data for state boundaries
     d3.json("us-states.json", function (json) {
 
         //merge csv data with geo json
@@ -49,6 +53,7 @@ function generateMap() {
 
         console.log(json);
 
+        //create states
         g.selectAll("path")
             .data(json.features)
             .enter()
@@ -65,6 +70,7 @@ function generateMap() {
             });
 
 
+        //add labels
         g.selectAll("text")
             .data(json.features)
             .enter()
@@ -73,10 +79,10 @@ function generateMap() {
                 return d.properties.electorate;
             })
             .attr("x", function (d) {
-                return path.centroid(d)[0];
+                return (path.centroid(d))[0];
             })
             .attr("y", function (d) {
-                return path.centroid(d)[1];
+                return (path.centroid(d))[1];
             })
             .attr("text-anchor", "middle")
             .attr('font-size', '6pt')

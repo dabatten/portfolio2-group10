@@ -14,6 +14,12 @@
         .state{
               
         }
+        img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
     </style>
 </head>
     
@@ -24,9 +30,29 @@
     <div class="map" id="map1"></div>
     <script src="election.js"></script>
     
+    <p>This map shows the election results for the 2012 presidential election. Each state is labeled with the number of electoral votes they have, while the color represents who those votes went to. Blue is for the Democratic canidate, Barack Obama; red is for the Republic canidate Mitt Romney. The FEC election report for 2012 which we used to create our CSV data can be found <a href="http://www.fec.gov/pubrec/fe2012/federalelections2012.pdf">here.</a></p>
+    
     <h4 id="geojson">GeoJSON</h4>
+    <p>JSON is a standard for encoding data for use in web applications. We used JSON in a couple different labs in this course. GeoJSON is use for JSON to encode geographic data (in this case, maps). Our example code uses a GeoJSON file of the United States provided for use in examples by D3’s creator Mike Bostock. Here is a short snippet of what it takes to define the boundaries of the state of Alabama in this format:</p>
+    <img src="screenshots/geojson.png"><br>
+    
     <h4 id="merge">Merging Data Sources</h4>
+    <p>As you may notice, the GeoJSON says nothing about the election results. Its sole purpose is to define the state boundaries. We have a separate CSV file that contains the data about what each state did in the election. So we have two data sources, but can only bind one dataset to an element at a time. To solve this predicament, we need to merge our data. Essentially what we want to do is for each state element from the JSON, add the extra information in our CSV data, and store it all under one dataset.
+</p>
+    <img src="screenshots/data_merge.png"><br>
+    
     <h4 id="paths">SVG Paths</h4>
+    <p>SVG is a standard for defining vector graphics in a way that is similar to how HTML defines a web page. In previous examples, we have used basic SVG elements like text or rectangles. But a map of states would be very hard to make with simple SVG elements. However a complex element in SVG, path, comes to our rescue. A path is a way to define a shape based upon a series of coordinates. So we can easily take our GeoJSON coordinates and convert them into an SVG path for each state using the following pieces of code:
+</p>
+    <img src="screenshots/path1.png"><br>
+    <img src="screenshots/path2.png"><br>
+    
+    <h4 id="projections">Map Projections</h4>
+    <p>Map projections are attempts to portray the curved surface of the earth on a flat surface. Some distortions always result from this process. As such different projections are better suited to different applications. Some common projections you may have heard of are the Mercator or Kavrayskiy VII projections. For our example, we wanted a projection suited to showing the United States only. </p>
+    
+    <img src="screenshots/projection.png"><br>
+    
+    <p>In this case, we used an AlbersUSA projection. We defined a scale for the projection and translated it to the center of map element. We then reference this projection when we create our paths.</p>
     
     <a href="pie.html">Next Page</a>
     
