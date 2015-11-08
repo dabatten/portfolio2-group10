@@ -2,12 +2,21 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+    <style>
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 
 <body>
     <a href="index.html">Back to index</a>
     <h3>A Basic Example</h3>
     <div></div>
+    <p>Try clicking the buttons to generate a new random data set and/or apply a transition animation.</p>
     <ul>
         <li>
             <button id="random">Randomize</button>
@@ -27,11 +36,41 @@
 
     <script src="bar.js"></script>
 
+
+
     <h4 id="jquery">jQuery and D3</h4>
-    <p></p>
-    
+    <p>
+        D3 is a JavaScript library much like jQuery. Both fundamentally allow you to easily interact with and edit the DOM in order to make complex web elements. They both also build upon the basic framework of web design: HTML, CSS. They also allow you to dynamically create SVGs (scalable vector graphics). Both work mostly through the use of “selectors.” Selectors are used to pinpoint what DOM elements you want to make changes to. The syntax for jQuery and D3 are very similar as well:
+    </p>
+    <p>
+        <i style="color: red">jQuery: </i>$(“#element_id)
+        <br>
+        <i style="color: blue">D3: </i>d3.select(“#element_id)
+    </p>
+    <p>D3 and JQuery often chain method calls together:</p>
+    <p>
+        <i style="color: red">jQuery: </i>$(“#element_id).append(some_element).css(“margin”, “100px”);
+        <br>
+        <i style="color: blue">D3: </i>d3.select(“#element_id).append(some_element).style(“margin”, “100px”);
+    </p>
+    <p>
+        The main difference between D3 and jQuery is that D3 is data-driven. Generally the data is bound to the element, callbacks are defined, and the D3 library does the rest. However with jQuery you would have to directly edit each node on the DOM tree.
+    </p>
+    <p>Here is an example of using selectors in d3 to add a SVG element and giving it some basic attributes:</p>
+
+    <img src="screenshots/selectors.png">
+    <br>
+
     <h4 id="animation">CSS Animations and D3</h4>
-    
+
+    <p>As we have seen D3 allows you to interact with the style attributes of elements. It goes a step further by building in transitions, which smoothly changes the attributes of elements using animations. Adding a transition to a change is as simple as adding one line of code: transition().</p>
+    <p>Once you have added transitions, animations can be further customized using the duration() call. Just put how long the transition should take in milliseconds inside the parentheses. You can even delay transition with a call to delay().</p>
+
+    <p>Below is an example in which we update the chart’s dataset and transition to the new data values: </p>
+
+    <img src="screenshots/transitions.png">
+    <br>
+
     <a href="stack.html">Next Page</a>
 
 </body>

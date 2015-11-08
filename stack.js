@@ -2,22 +2,21 @@ var width = 600;
 var height = 400;
 var margin = {
     top: 30,
-    right:25,
-    bottom: 125,
-    left:25
+    right: 25,
+    bottom: 80,
+    left: 50
 };
 
 
 //set scales
 var xScale = d3.scale.ordinal()
-    .rangeRoundBands([0, width], 0.05);
+    .rangeRoundBands([margin.left, width], 0.05);
 var yScale = d3.scale.linear()
     .rangeRound([height - margin.top, 0]);
-
-//var color = d3.scale.ordinal().range(["lightblue", "lightpink"]);
 var color = d3.scale.ordinal()
     .range(["violet", "royalblue"]);
 
+//create svg
 var svg = d3.select("body").selectAll("div")
     .append("svg")
     .attr("width", width + margin.right + margin.left)
@@ -25,10 +24,16 @@ var svg = d3.select("body").selectAll("div")
 
 var dataset = null;
 
+//define axes
 var xAxis = d3.svg.axis()
     .scale(xScale)
     .orient("bottom");
 
+var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("left");
+
+//import CSV and build dataset
 d3.csv("gender_stats.csv", function (data) {
 
     //assign a color to each gender
@@ -36,6 +41,7 @@ d3.csv("gender_stats.csv", function (data) {
         return key !== 'major';
     }));
 
+    //build data
     data.forEach(function (d) {
         var y0 = 0;
         d.genders = color.domain().map(function (gender) {
@@ -71,9 +77,9 @@ d3.csv("gender_stats.csv", function (data) {
 });
 
 
-
 function generateGraph() {
 
+    //major groups
     var major = svg.selectAll("g.major")
         .data(dataset)
         .enter()
@@ -83,6 +89,7 @@ function generateGraph() {
             return "translate(" + xScale(d.major) + ",0)";
         });
 
+    //rectangles
     major.selectAll("rect")
         .data(function (d) {
             return d.genders;
@@ -99,10 +106,11 @@ function generateGraph() {
         .attr("fill", function (d) {
             return color(d.gender)
         });
-    
+
+    //x-axis
     svg.append("g")
         .attr("class", "x-axis")
-        .attr("transform", "translate(0, " + height + ")")
+        .attr("transform", "translate(0, " + (height - 25) + ")")
         .call(xAxis)
         .selectAll("text")
         .style("text-anchor", "end")
@@ -110,7 +118,15 @@ function generateGraph() {
         .attr("dy", "-5px")
         .attr("transform", "rotate(-90)");
 
+    //y-axis
+    svg.append("g")
+        .attr("class", "y-axis")
+        .attr("transform", "translate(" + margin.left + ",0)")
+        .call(yAxis);
+
 }
+
+//functions for sorting dataset and then updating graph
 
 function sortFemalePercent() {
     dataset.sort(function (a, b) {
@@ -148,9 +164,11 @@ function sortFemale() {
     updateGraph(1500);
 }
 
+//function for updating a graph given a transtion duration
+
 function updateGraph(duration) {
-    
-        //set x domain based on majors
+
+    //set x domain based on majors
     xScale.domain(dataset.map(function (d) {
         return d.major;
     }));
@@ -160,7 +178,9 @@ function updateGraph(duration) {
     })]);
 
     var majors = svg.selectAll(".major");
-
+    
+    //perform changes
+    
     majors.data(dataset)
         .transition()
         .duration(duration);
@@ -181,11 +201,15 @@ function updateGraph(duration) {
         .attr("fill", function (d) {
             return color(d.gender)
         });
-    
+
     xAxis = d3.svg.axis()
-    .scale(xScale)
-    .orient("bottom");
-    
+        .scale(xScale)
+        .orient("bottom");
+
+    yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left");
+
     svg.selectAll("g.x-axis")
         .call(xAxis)
         .selectAll("text")
@@ -193,5 +217,5 @@ function updateGraph(duration) {
         .attr("dx", "-10px")
         .attr("dy", "-5px")
         .attr("transform", "rotate(-90)");
-    
+
 }

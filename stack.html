@@ -11,6 +11,16 @@
             font-size: 11px;
             font-family: sans-serif;
         }
+        
+        .y-axis text{
+            font-size: 11px;
+            font-family: sans-serif;
+        }
+        .y-axis path, .y-axis line {
+            fill: none;
+            stroke: grey;
+        }
+        
         div {
             margin-top: 10px;
         }
@@ -27,6 +37,8 @@
     <button id="sortMalePercent" onclick="sortMalePercent()">Sort % Male</button>
     <div></div>
     <script src="stack.js"></script>
+    
+    <p>The data for this chart is from the Iowa State University Registrar's enrollement report for Fall 2015. A PDF version can be found <a href="http://www.registrar.iastate.edu/sites/default/files/uploads/stats/major/MajorF15.pdf">here.</a></p>
     
     <h4 id="csv">Using CSV Data</h4>
     <h4 id="sorting">Sorting Data</h4>
