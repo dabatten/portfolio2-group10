@@ -44,14 +44,14 @@ d3.csv("gender_stats.csv", function (data) {
     //build data
     data.forEach(function (d) {
         var y0 = 0;
-        d.genders = color.domain().map(function (gender) {
+        d.genders = color.domain().map(function (gender) { //add a gender object to each data point
             return {
                 gender: gender,
-                y0: y0,
-                y1: y0 += +d[gender]
+                y0: y0, //initial y
+                y1: y0 += +d[gender] //height
             };
         });
-        d.total = d.genders[d.genders.length - 1].y1;
+        d.total = d.genders[d.genders.length - 1].y1; //total height
     });
 
     //sort descending by total enrollment
@@ -178,14 +178,11 @@ function updateGraph(duration) {
     })]);
 
     var majors = svg.selectAll(".major");
-    
     //perform changes
     
-    majors.data(dataset)
-        .transition()
-        .duration(duration);
+    majors.data(dataset); //rebind data
 
-    majors.selectAll("rect")
+    majors.selectAll("rect") //redraw rectangles
         .data(function (d) {
             return d.genders;
         })
@@ -202,14 +199,7 @@ function updateGraph(duration) {
             return color(d.gender)
         });
 
-    xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient("bottom");
-
-    yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient("left");
-
+    //relabel x-axis
     svg.selectAll("g.x-axis")
         .call(xAxis)
         .selectAll("text")

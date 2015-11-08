@@ -54,12 +54,20 @@
         <i style="color: blue">D3: </i>d3.select(“#element_id).append(some_element).style(“margin”, “100px”);
     </p>
     <p>
-        The main difference between D3 and jQuery is that D3 is data-driven. Generally the data is bound to the element, callbacks are defined, and the D3 library does the rest. However with jQuery you would have to directly edit each node on the DOM tree.
+        The main difference between D3 and jQuery is that D3 is data-driven. Generally the data is bound to the element, callbacks are defined, and the D3 library does the rest. However with jQuery you would have to directly edit each node on the DOM tree. To add data to a D3 element, you use the data() method. In this example we used a JavaScript array populated with random integer values between 20 and 200 as our data.
     </p>
-    <p>Here is an example of using selectors in d3 to add a SVG element and giving it some basic attributes:</p>
+    <p>Here is an example of using selectors in D3 to add a SVG element and giving it some basic attributes:</p>
 
     <img src="screenshots/selectors.png">
     <br>
+    
+    
+    <h4 id="scale">D3 Scales</h4>
+    <p>D3 has functions to scale data to fit within given dimensions. For a scale to work, it needs both an input domain and an output range. The input domain is the range of values that are given as input to the scale (generally the minimum data value to the maximum). The output range is the range of values you want to use as display values (generally given in pixels). There are also different types of scales. Linear is probably the most straight-forward and common. Ordinal is also commonly used for nonquantitative data values like categories. Our chart uses both in definine X and Y scales. Range bands are a way of dividing a continuous range (like a linear scalue uses) into discrete ranges (as ordinal scales use). So to make things easier on us, we use the roundRangeBands() method to define the range for our ordinal scales.
+</p>
+    <img src="screenshots/scales.png"><br>
+    
+<p>These scales can be refrenced elsewhere in our code, to automatically do the math for use to map a data value or index to an element's attribute value. The code in the next section will show this in more detail.</p>
 
     <h4 id="animation">CSS Animations and D3</h4>
 
@@ -69,7 +77,7 @@
     <p>Below is an example in which we update the chart’s dataset and transition to the new data values: </p>
 
     <img src="screenshots/transitions.png">
-    <br>
+    <br>  
 
     <a href="stack.html">Next Page</a>
 
