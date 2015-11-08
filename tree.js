@@ -1,7 +1,7 @@
 
         var margin = {top: 20, right: 120, bottom: 20, left: 120},
-            width = 960,
-            height = 700 - margin.top - margin.bottom;
+            width = 700,
+            height = 500 - margin.top - margin.bottom;
 
         var tree = d3.layout.tree()
         .size([height, width - 160]);
@@ -11,7 +11,7 @@
             return [d.y, d.x];
         });
 
-        var svg = d3.select("body").append("svg")
+        var svg = d3.select("#bracket").append("svg")
         .attr("width", width)
         .attr("height", height)
         .append("g")
