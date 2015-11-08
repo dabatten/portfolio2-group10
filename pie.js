@@ -61,14 +61,6 @@ function generateChart() {
             return d.value; //make text label the number of students
         })
         .attr("fill", "white");
-
-    //TODO add interactivity with chart data
-    
-    paths.on("mouseover", function(d){
-        console.log(d);
-        var path = d3.select(this);
-        console.log(path);
-    });
     
     buildLegend();
     
@@ -144,11 +136,13 @@ function addTooltips() {
             return color(d.data.major);
         })
         
+        //sum up the number of students
         var total = d3.sum(dataset.map(function (d) {
-            // return (d.data.enabled) ? d.data.numStudents : 0;
             return d.data.numStudents;
         }));
+        //calculate the percentage
         var percent = Math.round(1000 * d.data.numStudents / total) / 10;
+        //fill the tooltip
         tooltip.select('.label').html(d.data.major);
         tooltip.select('.percent').html(percent + '%');
         tooltip.style('display', 'block');
