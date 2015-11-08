@@ -4,20 +4,9 @@
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
     <style>
-        /*
-        h3{
-            position: absolute;
-            top: 700px;
-        }
-*/
-        
+
         h2 {
-            /*
-            position: absolute;
-            width: 200px;
-            right: 200px;
-            top: 50px;
-*/
+
             float: right;
         }
         
@@ -28,12 +17,7 @@
         }
         
         #node {
-            /*
-            position: absolute;
-            width: 150px;
-            right: 250px;
-            top: 100px;
-*/
+ 
             float: right ;
             padding-right: 10px;
             padding-left: 10px;
@@ -41,13 +25,7 @@
             padding-bottom: 5px;
             border-style: solid;
         }
-        /*
-        p{
-            position: absolute;
-            top: 730px;
-        }
-*/
-        
+ 
         .node circle {
             fill: #fff;
             stroke: steelblue;
@@ -100,10 +78,23 @@
     <div id="writeup">
         <h3 id="layout">Tree Layout</h3>
         <p>
-            The ‘Tree layout’ is not only a distinct type of diagram. It also representates one of D3’s hierarchical layouts. It’s designed to produce a ‘node-link’ diagram that lays out the connection between nodes in a method that displays the relationship of one node to another in a parent-child fashion. The data required to produce this type of layout needs to describe the relationship. d3.layout.tree() is the starting point for tree layouts in D3. The call to this function returns an object that contains a bunch of methods to configure the layout and also provides methods to compute the layout. The tree layout produces tidy node-link diagrams of trees using the Reingold–Tilford “tidy” algorithm. With tree layout you can visualize the data in a node-relation like stucture.
+            The ‘Tree layout’ is not only a distinct type of diagram, it also representates one of D3’s hierarchical layouts. It’s designed to produce a ‘node-link’ diagram that lays out the connection between nodes in a method that displays the relationship of one node to another in a parent-child fashion. The data required to produce this type of layout needs to describe the relationship. d3.layout.tree() is the starting point for tree layouts in D3. The call to this function returns an object that contains a bunch of methods to configure the layout and also provides methods to compute the layout. The tree layout produces tidy node-link diagrams of trees using the Reingold–Tilford “tidy” algorithm. With tree layout you can visualize the data in a node-relation like stucture.  The depth of nodes is computed by distance from the root, leading to a ragged appearance. Cartesian orientations are also supported.<br><br>
+            
+            The best starting point is defining the data being used, csv or json.  The two data types can be redily configured to each other, so the question is what type of data manipulation do you want to accomplish.  For this tree framework we wanted to simulate a tornament table of the 2016 Soccer World Cup.  The data was not readily available in a spreadsheet format, so we needed to built our data type manually.  As such we went with json.  The form let us bind each individual game data to each node and let a parent child relationship exist, as with a tornament table.  With the data set up correctly, the tree layout took care of the rest.  <br><br>  
+            
+            D3 Apple easily allows the user to assign a layout to a data set:<br><br>
+            
+             var tree = d3.layout.tree()<br>
+             .size([height, width - 160]);<br><br>
+            
+            We also passed in the variables to alow us to set the hight and width of the tree, in pixels, when printed.  We styled the chords between each node taking advantage of the diagonal defults.  By making each chord a diagonal line, we did not need to spesify each angle of the chord.<br><br><br> 
+            
+            Other modifications to the format include line and node color, adding text, text position, and data binding:<br><br><br>
         </p>
         <h3 id="events">On-click Events</h3>
-        <p></p>
+        <p>
+        
+        
+        </p>
     </div>
-
 </body>
