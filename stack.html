@@ -56,7 +56,7 @@
     <img src="screenshots/import_csv.png">
     <br>
 
-    <p>Other files types such as TSV and JSON are also supported. In fact, we will look at importing geoJSON in our Choropleth Map example. However, our data for the stack chart was fairly simple and was already available in the form of an Excel document so CSV suited us better here.
+    <p>Other files types such as TSV and JSON are also supported. In fact, we will look at importing GeoJSON in our Choropleth Map example. However, our data for the stack chart was fairly simple and was already available in the form of an Excel document so CSV suited us better here.
     </p>
 
     <h4 id="sorting">Sorting Data</h4>
@@ -66,7 +66,7 @@
     <img src="screenshots/sorting.png"><br>
     
     <h4 id="updating">Updating Data</h4>
-    <p>Updating data is unfortunately one of the more annoying things to try to do in D3. In order to update data, one must first change their dataset and then rebind it to the chart. Then, for every element, that is changing, you must redefine its attributes. In our stack chart example, that means we need to reset the domains for x and y, redraw the rectangles, and re-label the x-axis. If you make drastic changes to dataset, you may have to essentially remake your graph from scratch each time. When defining changes to your chart, you can also add transition animations, which were discussed in our simple bar chart example.
+    <p>Updating data is unfortunately one of the more annoying things to try to do in D3. In order to update data, one must first change the dataset and then rebind it to the chart. Then, for every element that is changing, you must redefine its attributes. In our stack chart example, that means we need to reset the domains for x and y, redraw the rectangles, and re-label the x-axis. If you make drastic changes to the dataset, you may have to essentially remake your graph from scratch each time. When defining changes to your chart, you can also add transition animations, which were discussed in our simple bar chart example.
 </p>
     
     <img src="screenshots/update_data.png"><br>
