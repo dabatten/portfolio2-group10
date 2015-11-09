@@ -86,6 +86,8 @@
             node.on("click", function(d){
                     update(d);
             });
+            
+            update(root);
         });
 
     
